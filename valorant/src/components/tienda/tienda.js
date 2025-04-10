@@ -1,15 +1,18 @@
-
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./weapons.css";
-const Weapon = (props) =>{
+const Tienda = (props) => {
     const [weapons,setWeapons] = useState([])
 
     useEffect(() => {
         
         axios.get("https://valorant-api.com/v1/weapons").then(response => {
-          setWeapons(response.data.data)
+          const allWeapons =response.data.data;
+
+          const randomWeapons = [...allWeapons].sort(() => 0.5 - Math.random());
+          const shopWeapons = randomWeapons.slice(0, 5);
+          setWeapons(shopWeapons);
         })
+        
         
     },[])
     return <>
@@ -25,6 +28,10 @@ const Weapon = (props) =>{
             </div>
            
     </>
+    
+    
+    return <>
+    </>
 }
 
-export default Weapon;
+export default Tienda;

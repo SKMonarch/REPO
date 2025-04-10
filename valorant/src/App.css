@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+
+body {
+  margin: 0;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: #0f1923;
+  color: #f9f9f9;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav {
+  background-color: #1f2a36;
+  padding: 1rem 2rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 2rem;
+  border-bottom: 2px solid #ff4655;
 }
 
-.App-link {
-  color: #61dafb;
+nav a {
+  color: #f9f9f9;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav a:hover {
+  color: #ff4655;
+}
+
+
+h1, h2, h3 {
+  color: #ff4655;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+
+input[type="text"],
+input[type="search"],
+select {
+  background-color: #1f2a36;
+  border: 1px solid #ff4655;
+  color: #f9f9f9;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+
+button {
+  background-color: #ff4655;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e03a47;
+}
+
+
+.card {
+  background-color: #1f2a36;
+  border-left: 4px solid #ff4655;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+
+.loader,
+.message {
+  color: #ff4655;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: #1a232e;
+  border-left: 3px solid #ff4655;
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+  border-radius: 5px;
+  transition: transform 0.2s ease;
+}
+
+li:hover {
+  transform: translateX(5px);
 }
