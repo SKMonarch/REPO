@@ -12,7 +12,7 @@ function App() {
         <Link to="/" className="hover:underline">Inicio</Link>
         <Link to="/tienda" className="hover:underline">Tienda</Link>
         <Link to="/armeria" className="hover:underline">Armeria</Link>
-      </nav>
+    </nav>
     <Routes>
       <Route path="/tienda" element={<Tienda />}/>
       <Route path="/armeria" element={<Weapon />}/>

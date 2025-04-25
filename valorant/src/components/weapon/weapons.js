@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./weapons.css";
+import WeaponsCard from "../weaponCard/weaponCard";
 const Weapon = (props) =>{
     const [weapons,setWeapons] = useState([])
 
@@ -12,14 +13,15 @@ const Weapon = (props) =>{
         })
         
     },[])
+
+
+    const texto = "Odin"
+    
     return <>
             <h1>Armas de Valorant</h1>
             <div className="weapon-grid">
                 {weapons.map((weapon) =>(
-                    <div className="weapon-card">
-                        <h3>{weapon.skins[8].displayName}</h3>
-                        <img src={weapon.skins[8].displayIcon}></img>
-                    </div>
+                    <WeaponsCard key={weapon.uuid} weapon={weapon} />
                 ) )
                 }
             </div>
