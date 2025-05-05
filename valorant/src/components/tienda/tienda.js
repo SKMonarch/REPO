@@ -20,7 +20,7 @@ const Tienda = (props) => {
             <h1>Armas de Valorant</h1>
             <div className="weapon-grid">
                 {weapons.map((weapon) =>(
-                   <WeaponsCard key={weapon.uuid} weapon={weapon} />
+                   <WeaponsCard key={weapon.uuid} weapon={weapon.skins[6]} />
                 ) )
                 }
             </div>

@@ -1,0 +1,85 @@
+  .weapon-detail {
+    padding: 1rem;
+  }
+  
+  .main-weapon-img {
+    width: 400px;
+    max-width: 100%;
+    margin: 2rem auto;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
+  }
+  .main-weapon-img:hover {
+    transform: scale(1.05);
+  }
+  
+  .skins-gallery {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .skin-card {
+    text-align: center;
+    max-width: 120px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .skin-card:hover {
+    border-color: #aaa;
+  }
+  .skin-card.selected {
+    border-color: #00ffcc;
+  }
+  
+  .skin-card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  .filtros-skins {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+  }
+  .filtros-skins input,
+  .filtros-skins select {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  .stats-weapon {
+    max-width: 400px;
+    margin: 1rem auto;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-size: 0.95rem;
+  }
+  
+  .stats-weapon table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .stats-weapon th,
+  .stats-weapon td {
+    padding: 0.6rem 1rem;
+    text-align: left;
+  }
+  
+  .stats-weapon th {
+    background-color: #2a2a2a;
+    font-weight: bold;
+  }
+  
+  .stats-weapon tr:nth-child(even) {
+    background-color: #2e2e2e;
+  }
+  
+  .stats-weapon tr:hover {
+    background-color: #3a3a3a;
+  }
+  

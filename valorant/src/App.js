@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Weapon from './components/weapon/weapons';
 import Tienda from './components/tienda/tienda';
+import WeaponDetail from './weaponDetails/weaponDetail';
+
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
     <Routes>
       <Route path="/tienda" element={<Tienda />}/>
       <Route path="/armeria" element={<Weapon />}/>
+      <Route path="/weapon/:id" element={<WeaponDetail />} />
     </Routes>
   </BrowserRouter>
   );
