@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./weapons.css";
-
+import WeaponCardDetails from "../weaponCardDetails/weaponCardDetails";
+import SelectedSkins from "../components/selectedSkins/selectedSkins";
 /*
 const RAREZAS = {
   "0cebb8be-46d7-c12a-d306-e9907bfc5a25": "Select Edition",
@@ -54,27 +55,17 @@ const WeaponDetail = () => {
 
   if (!weapon) return <p>Cargando...</p>;
 
-  const skinsFiltradas = weapon.skins.filter((skin) =>
+  /*Filtrado Muestreo SKINS */
+  const skinsFiltradas = weapon.skins.filter((skin) => !skin.displayName.toLowerCase().includes("random") &&
     skin.displayName.toLowerCase().includes(nombreFiltro.toLowerCase()) &&
     (rarezaFiltro === "" || skin.contentTierUuid === rarezaFiltro)
   );
 
   return (
     <div className="weapon-detail">
-      <h2>{weapon.displayName}</h2>
-      <img src={skinSeleccionada?.displayIcon || weapon.displayIcon} alt={weapon.displayName} className="main-weapon-img"/>
-      <div className="stats-weapon">
-  <table>
-    <tbody>
-      <tr><th>Stat</th><th>Valor</th></tr>
-      <tr><td>Fire Rate</td><td>{weapon.weaponStats?.fireRate ?? "N/A"}</td></tr>
-      <tr><td>Mag Size</td><td>{weapon.weaponStats?.magazineSize ?? "N/A"}</td></tr>
-      <tr><td>Reload (s)</td><td>{weapon.weaponStats?.reloadTimeSeconds ?? "N/A"}</td></tr>
-      <tr><td>Wall Pen</td><td>{weapon.weaponStats?.wallPenetration?.split("::")[1] ?? "N/A"}</td></tr>
-      <tr><td>Cost</td><td>{weapon.shopData?.cost ?? "N/A"} créditos</td></tr>
-    </tbody>
-  </table>
-</div>
+   
+     <WeaponCardDetails key={weapon.uuid} weapon={weapon} skinSeleccionada={skinSeleccionada} />
+
 
 
       <h3>Skins disponibles:</h3>
@@ -96,15 +87,7 @@ const WeaponDetail = () => {
         </select>
       </div>
 
-      <div className="skins-gallery">
-        {skinsFiltradas.map((skin, index) => (
-          <div key={index} className={`skin-card ${skinSeleccionada?.uuid === skin.uuid ? "selected" : ""}`} onClick={() => setSkinSeleccionada(skin)} >
-            <img src={skin.displayIcon} alt={skin.displayName} />
-            <p>{skin.displayName}</p>
-            <p className="rareza-skin">{nameForRarezaUuid(skin.contentTierUuid)}</p>
-          </div>
-        ))}
-      </div>
+      <SelectedSkins weapon={weapon} skinsFiltradas={skinsFiltradas} skinSeleccionada={skinSeleccionada} setSkinSeleccionada={setSkinSeleccionada} nameForRarezaUuid={nameForRarezaUuid} />
     </div>
   );
 };

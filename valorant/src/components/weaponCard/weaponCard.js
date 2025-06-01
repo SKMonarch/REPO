@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const WeaponsCard = ({ weapon }) => {
+const WeaponsCard = ({ weapon}) => {
   const navigate = useNavigate();
 
   const handleClick = () => {

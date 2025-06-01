@@ -14,8 +14,6 @@ const Weapon = (props) =>{
         
     },[])
 
-
-
     
     return <>
             <h1>Armas de Valorant</h1>
@@ -30,5 +28,5 @@ const Weapon = (props) =>{
 }
 
 
-//contains / includes
+
 export default Weapon;

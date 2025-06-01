@@ -1,35 +1,57 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import WeaponsCard from "../weaponCard/weaponCard";
-const Tienda = (props) => {
+import WeaponsCardShop from "../weaponCardShop/weaponCardShop";
+
+const Tienda = ({ cash, reducirCash }) => {
     const [weapons,setWeapons] = useState([])
+    
 
     useEffect(() => {
         
         axios.get("https://valorant-api.com/v1/weapons").then(response => {
           const allWeapons =response.data.data;
 
-          const randomWeapons = [...allWeapons].sort(() => 0.5 - Math.random());
-          const shopWeapons = randomWeapons.slice(0, 5);
-          setWeapons(shopWeapons);
+          /*random indice, pillar ya las 5  */
+          const randomWeapons = [...allWeapons].sort(() => 0.5 - Math.random()).slice(0, 5);
+          
+          const weaponsSkins = randomWeapons.map(weapon => {
+            const validSkins = weapon.skins.filter(skin =>skin.displayIcon &&
+                !skin.displayName.toLowerCase().includes("random") &&
+                !skin.displayName.toLowerCase().includes("standard")
+            );
+                const randomSkin = validSkins[Math.floor(Math.random() * validSkins.length)];
+                return { ...weapon, skin: randomSkin };
+            });
+
+            setWeapons(weaponsSkins);
+            
+          
         })
-        
-        
+       
+
     },[])
     return <>
             <h1>Armas de Valorant</h1>
             <div className="weapon-grid">
+                
                 {weapons.map((weapon) =>(
-                   <WeaponsCard key={weapon.uuid} weapon={weapon.skins[6]} />
+                   <WeaponsCardShop key={weapon.uuid} weapon={weapon} skin={weapon.skin} reducirCash={reducirCash} />
                 ) )
                 }
             </div>
            
     </>
+    /*localstorage */
+    /*
+                //cada vez qie se compre 
+    localStorage.setItem("money",50000) 
+                
+                const mymoney = (props) => {
+                    const inicial = 50000
+                    }
+                
+    */
     
-    
-    return <>
-    </>
 }
 
 export default Tienda;
