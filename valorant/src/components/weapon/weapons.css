@@ -41,4 +41,12 @@ body {
     height: auto;
     margin-bottom: 10px;
   }
-  
+  .skin-card.owned {
+  border: 3px solid #4CAF50; 
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+
+.skin-card.selected.owned {
+  border: 3px solid #ff0000; 
+}

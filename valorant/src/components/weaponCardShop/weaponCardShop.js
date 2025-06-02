@@ -17,27 +17,27 @@ const WeaponsCardShop = ({ skin, reducirCash }) => {
 
   const comprar = () => {
     const precio = precioRareza(skin.contentTierUuid);
-    if (typeof precio === "number") {
-      const success = reducirCash(precio);
-      if (success) {
-        alert("¡Compra realizada!");
-        console.log("LA PRUEBA DE FUEGO: Las skins (ids) en almacenamiento son:")
-        /*let skinGuardadas = [] */
-        console.log(localStorage.getItem("skins"))
-        /* Instancia una variable con la información en local o crea un Array vacio
-          JSON.parse cambia el valor en String  a un objeto o un Array y 
-          JSON.stringify transforma el array u Objeto a un String */
-        let skinGuardadas =JSON.parse(localStorage.getItem("skins")) || [];
-        skinGuardadas.push(skin.uuid);
-        localStorage.setItem("skins" , JSON.stringify(skinGuardadas));
-        
-        console.log("RESULTADO: Despues de guardar la nueva, ahora son:")
-        console.log(localStorage.getItem("skins"))
-      } else {
-        alert("Saldo insuficiente");
-        
-      }
+
+    
+    let skinsGuardadas = JSON.parse(localStorage.getItem("skins")) || [];
+
+    
+    if (skinsGuardadas.includes(skin.uuid)) {
+      alert("¡Ya compraste esta skin!");
+      return;
     }
+
+    const success = reducirCash(precio);
+    if (success) {
+      alert("¡Compra realizada!");
+
+      
+      skinsGuardadas.push(skin.uuid);
+      localStorage.setItem("skins", JSON.stringify(skinsGuardadas));
+    } else {
+      alert("Saldo insuficiente");
+    }
+    console.log(skinsGuardadas);
   };
 
   return (
@@ -51,6 +51,3 @@ const WeaponsCardShop = ({ skin, reducirCash }) => {
 };
 
 export default WeaponsCardShop;
-
- /* al comprar set con localStorage del skin.uuid par asi mandar al weaponDetails  la skin y
-   que se marque de algun color para indetificar el estado en propiedad*/ 
