@@ -11,6 +11,7 @@ const WeaponsCard = ({ weapon}) => {
     <div className="weapon-card" onClick={handleClick}>
       <img src={weapon.displayIcon} alt={weapon.displayName} />
       <h3>{weapon.displayName}</h3>
+      
     </div>
   );
 };

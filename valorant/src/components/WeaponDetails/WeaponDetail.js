@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./weapons.css";
-import WeaponCardDetails from "../weaponCardDetails/weaponCardDetails";
-import SelectedSkins from "../components/selectedSkins/selectedSkins";
+import WeaponCardDetails from "../WeaponCardDetails/WeaponCardDetails";
+import SelectedSkins from "../SelectedSkins/SelectedSkins";
 /*
 const RAREZAS = {
   "0cebb8be-46d7-c12a-d306-e9907bfc5a25": "Select Edition",
@@ -50,12 +50,15 @@ const WeaponDetail = () => {
   useEffect(() => {
     axios.get(`https://valorant-api.com/v1/weapons/${id}`).then((response) => {
       setWeapon(response.data.data);
+      
+      
     });
   }, [id]);
 
   if (!weapon) return <p>Cargando...</p>;
+  let skinsGuardadas = JSON.parse(localStorage.getItem("skins")) || [];
+    let esComprado = skinSeleccionada && skinsGuardadas.includes(skinSeleccionada.uuid);
 
-  /*Filtrado Muestreo SKINS */
   const skinsFiltradas = weapon.skins.filter((skin) => !skin.displayName.toLowerCase().includes("random") &&
     skin.displayName.toLowerCase().includes(nombreFiltro.toLowerCase()) &&
     (rarezaFiltro === "" || skin.contentTierUuid === rarezaFiltro)
@@ -64,7 +67,7 @@ const WeaponDetail = () => {
   return (
     <div className="weapon-detail">
    
-     <WeaponCardDetails key={weapon.uuid} weapon={weapon} skinSeleccionada={skinSeleccionada} />
+     <WeaponCardDetails key={weapon.uuid} weapon={weapon} skinSeleccionada={skinSeleccionada}  esComprado={esComprado}/>
 
 
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import WeaponsCardShop from "../weaponCardShop/weaponCardShop";
+import WeaponsCardShop from "../WeaponCardShop/WeaponCardShop";
 
 const Tienda = ({ cash, reducirCash }) => {
     const [weapons,setWeapons] = useState([])

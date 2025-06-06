@@ -1,4 +1,4 @@
-const WeaponCardDetails = ({ weapon, skinSeleccionada }) =>{
+const WeaponCardDetails = ({ weapon, skinSeleccionada, esComprado }) =>{
 
 
 
@@ -6,6 +6,9 @@ const WeaponCardDetails = ({ weapon, skinSeleccionada }) =>{
     <>
         <h2>{weapon.displayName}</h2>
         <img src={skinSeleccionada?.displayIcon || weapon.displayIcon} alt={weapon.displayName} className="main-weapon-img"/>
+        <div>
+          { esComprado ?<> 🛒</> :<></>}
+        </div>
         <div className="stats-weapon">
           <table>
             <tbody>

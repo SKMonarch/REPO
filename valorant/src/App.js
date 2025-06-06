@@ -1,9 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Weapon from "./components/weapon/weapons";
-import Tienda from "./components/tienda/tienda";
-import WeaponDetail from "./weaponDetails/weaponDetail";
-import Cash from "./cash/cash";
+import Weapon from "./components/Weapon/Weapons";
+import Tienda from "./components/Tienda/Tienda";
+import WeaponDetail from "./components/WeaponDetails/WeaponDetail";
+import Cash from "./Cash/Cash";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 
@@ -21,9 +21,7 @@ function App() {
     return storedCash;
   });
 
-  useEffect(() => {
-    localStorage.setItem("cash", cash);
-  }, [cash]);
+
 
   const registrarTransaccion = (monto) => {
     const transacciones = JSON.parse(localStorage.getItem("transacciones")) || [];

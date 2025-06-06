@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./weapons.css";
-import WeaponsCard from "../weaponCard/weaponCard";
+import WeaponsCard from "../WeaponCard/WeaponCard";
 const Weapon = (props) =>{
     const [weapons,setWeapons] = useState([])
 
