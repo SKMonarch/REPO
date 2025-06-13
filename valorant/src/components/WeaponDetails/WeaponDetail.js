@@ -69,7 +69,8 @@ const WeaponDetail = () => {
    
      <WeaponCardDetails key={weapon.uuid} weapon={weapon} skinSeleccionada={skinSeleccionada}  esComprado={esComprado}/>
 
-
+  
+  
 
       <h3>Skins disponibles:</h3>
 
