@@ -52,6 +52,8 @@ const Tienda = ({ cash, reducirCash }) => {
                 
     */
     
-}
+}  
+
+
 
 export default Tienda;
