@@ -57,7 +57,7 @@ const WeaponDetail = () => {
 
   if (!weapon) return <p>Cargando...</p>;
   let skinsGuardadas = JSON.parse(localStorage.getItem("skins")) || [];
-    let esComprado = skinSeleccionada && skinsGuardadas.includes(skinSeleccionada.uuid);
+  let esComprado = skinSeleccionada && skinsGuardadas.includes(skinSeleccionada.uuid);
 
   const skinsFiltradas = weapon.skins.filter((skin) => !skin.displayName.toLowerCase().includes("random") &&
     skin.displayName.toLowerCase().includes(nombreFiltro.toLowerCase()) &&
@@ -88,6 +88,11 @@ const WeaponDetail = () => {
            )
           } 
           
+        </select>
+
+
+        <select>
+          <option value="">Propietario</option>
         </select>
       </div>
 

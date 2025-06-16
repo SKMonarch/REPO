@@ -9,7 +9,7 @@ const WeaponCardDetails = ({ weapon, skinSeleccionada, esComprado }) =>{
         <div>
           { esComprado ?<> 🛒</> :<></>}
         </div>
-        <div className="stats-weapon">
+        <div className="stats-weapon"> 
           <table>
             <tbody>
               <tr><th>Stat</th><th>Valor</th></tr>
@@ -18,6 +18,7 @@ const WeaponCardDetails = ({ weapon, skinSeleccionada, esComprado }) =>{
               <tr><td>Reload (s)</td><td>{weapon.weaponStats?.reloadTimeSeconds ?? "N/A"}</td></tr>
               <tr><td>Wall Pen</td><td>{weapon.weaponStats?.wallPenetration?.split("::")[1] ?? "N/A"}</td></tr>
               <tr><td>Cost</td><td>{weapon.shopData?.cost ?? "N/A"} créditos</td></tr>
+              <tr><td>first Bullet Accuracy </td><td>{weapon.weaponStats?.adsStats?.firstBulletAccuracy ?? "N/A"}</td></tr>
             </tbody>
           </table>
         </div>
