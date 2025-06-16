@@ -49,13 +49,13 @@ const WeaponsCardShop = ({ skin, reducirCash }) => {
     
     
   
-
+  let skinsGuardadas = JSON.parse(localStorage.getItem("skins")) || [];
 
   return (
     <div className="weapon-card">
       <img src={skin.displayIcon} alt={skin.displayName} />
       <h3>{skin.displayName}</h3>
-      <button onClick={comprar}>COMPRAR</button>
+      <button onClick={comprar} disabled={skinsGuardadas.includes(skin.uuid)}>COMPRAR</button>
       <h4>{precioRareza(skin.contentTierUuid)}</h4>
       <p>{currentCash > 0 ? currentCash :  "No tienes cash suficiente"} </p>
     </div>
