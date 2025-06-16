@@ -40,12 +40,24 @@ const WeaponsCardShop = ({ skin, reducirCash }) => {
     console.log(skinsGuardadas);
   };
 
+  
+  const transacciones = JSON.parse(localStorage.getItem("transacciones")) || [];
+  const storedCash = transacciones.reduce((cashTotal, monto) => {
+    return  cashTotal + monto;
+  }, 5000)
+  const currentCash = storedCash - precioRareza(skin.contentTierUuid)
+    
+    
+  
+
+
   return (
     <div className="weapon-card">
       <img src={skin.displayIcon} alt={skin.displayName} />
       <h3>{skin.displayName}</h3>
       <button onClick={comprar}>COMPRAR</button>
       <h4>{precioRareza(skin.contentTierUuid)}</h4>
+      <p>{currentCash > 0 ? currentCash :  "No tienes cash suficiente"} </p>
     </div>
   );
 };
